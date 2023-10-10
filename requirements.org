@@ -1,0 +1,87 @@
+* Build an HTTP Client
+** Description
+
+   Your task is to build a partially HTTP 1.1 compliant HTTP Client
+   that can GET and POST to a webserver.
+
+   You are meant to understand the very basics of HTTP by having a
+   hands-on ground up understanding of what it takes to have an HTTP
+   connection.
+
+** Collaboration
+   - You may consult with others but the submission should be your
+     own source code.
+   - Collaboration must be documented in the README.md file
+   - Any external source code must be referenced and documented in
+     the httpclient.py file
+
+** User Stories
+   x As a user I want to GET from URLs
+   x As a user I want to GET from URLs that use virtualhosting
+   x As a user I want to POST to URLs
+   x As a user I want to POST from URLs that use virtualhosting
+   x As a user when I GET or POST I want the result printed to stdout
+   x As a developer when I GET or POST I want the result returned as
+     a HTTPResponse object
+
+** Requirements
+   - [x] Implement basic HTTP GET
+   - [x] Implement basic HTTP POST
+   - [x] The httpclient can pass all the tests in freetests.py
+   - [x] The webserver can pass all the tests in not-free-tests.py
+     (you don't have this one! it can change -- but it will be fair to the user stories/requirements)
+   - [x] HTTP POST can post vars
+   - [x] HTTP POST handles at least Content-Type:
+     application/x-www-form-urlencoded
+   - [x] httpclient can handle 404 requests and 200 requests
+   - [x] Cumulatively together all tests must SUCCESSFULLY terminate within 150 seconds. Lack of termination is test failure.
+
+** Restrictions
+   - [x] Use Python 3.6 (3.6.7 is preferred)
+   - [x] Must run in the VM without virtualenv (Ubuntu 18.10, Python 3.6)
+   - [x] License your httpclient properly (use an OSI approved license)
+     - Put your name on it!
+   - [x] You cannot use a Web Client library except for urllib utils
+     to convert strings to url-encode and query-string format and back
+      - urllib.request is BANNED
+      - urllib.parse is OKAY for parsing URLs
+      - you have to parse headers yourself
+   - [x] You should use the socket library that comes with python
+
+** Recommendations
+   - Use the httpclient.py skeleton.
+   - Keep it short, keep it modular
+   - READ the spec, read the format of a request
+   - It's a good idea to send the Host header in a GET or POST
+
+** Submission Instructions
+   - Fork my repository from github
+     https://github.com/abramhindle/CMPUT404-assignment-web-client
+   - Push your commits to your fork
+   - In EClass for this assignment submit a URL to the git
+     repository. I would prefer github for the host.
+     - Line 1: the git URL
+     - Line 2: Your CCID
+   - An example submission looks like this
+    #+BEGIN_SRC bash
+        https://github.com/youruserid/thisassignment.git 
+        yourccid
+    #+END_SRC
+   - To mark your assignment I should be able to type:     
+    #+BEGIN_SRC bash
+        git clone http://github.com/youruserid/thisassignment.git yourccid
+        cd yourccid
+        python3 freetests.py
+    #+END_SRC
+
+   - Marks will be deducted if I cannot successfully do this.
+     
+   - Marks will be deducted for using library code that does the assignment.
+   
+   - Marks can be deducated for egregious violation of requirements (e.g. hard
+     coding path names etc.).
+
+** Marking
+   - Excellent 7/7: All tests pass (free and notfree) in time.
+   - Good 6/7: All tests pass (free and notfree) except testInternetGets in time.
+   - Failure 0/7: Any test other than testInternetGets fails.
